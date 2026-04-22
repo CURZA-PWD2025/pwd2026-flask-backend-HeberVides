@@ -1,4 +1,5 @@
-FROM python:3.14
+FROM python:3.12-slim
+#CAMBIE LA VERSIÓN 3.14, YA QUE ME DABA PROBLEMAS
 WORKDIR /app
 COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt

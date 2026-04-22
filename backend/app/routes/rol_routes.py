@@ -1,7 +1,7 @@
 from app.controllers.rol_controller import RolController
 from flask import request, Blueprint
 
-
+# Ruta para registrar en el __init__.py
 roles = Blueprint('roles', __name__, url_prefix='/roles')
 
 @roles.route('/')

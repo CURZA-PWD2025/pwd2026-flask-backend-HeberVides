@@ -1,4 +1,5 @@
-#/
-venv
+.venv/
 .env
-.devcontainer
+.devcontainer/
+__pycache__/
+*.pyc

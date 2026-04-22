@@ -3,7 +3,7 @@ from flask import request, Blueprint
 from flask_jwt_extended import jwt_required
 from app.decorators.rol_access import rol_access
 
-
+# Ruta para registrar en el __init__.py
 users = Blueprint('users', __name__, url_prefix='/users')
 
 @users.route('/')

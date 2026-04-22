@@ -1,15 +1,24 @@
-from flask import Blueprint, request
+from flask import Blueprint
+from flask_jwt_extended import jwt_required
 from app.controllers.auth_controller import AuthController
 
-auth_bp = Blueprint('auth', __name__)
+# Ruta para registrar en el __init__.py
+auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 
-@auth_bp.route('/register', methods=['POST'])
+
+# Registra al usuario.
+@auth_bp.route("/register", methods=["POST"])
 def register():
-    data = request.get_json()
-    return AuthController.Register(data)    
+    return AuthController.register()
 
-@auth_bp.route('/login', methods=['POST'])
+# Login del usuario
+@auth_bp.route("/login", methods=["POST"])
 def login():
-    data = request.get_json()
-    return AuthController.login(data)
+    return AuthController.login()
 
+# Solo agregue el metodo para mostrar el perfil
+# Muestra el perfil del usuario autenticado
+@auth_bp.route("/me", methods=["GET"])
+@jwt_required()
+def me():
+    return AuthController.me()
